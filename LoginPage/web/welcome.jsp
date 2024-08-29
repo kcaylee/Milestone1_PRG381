@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="models.Connections" %> <!-- Import the Connections class -->
+<%@ page import="models.Connections" %> 
 <html>
 <head>
     <title>Welcome</title>
@@ -38,7 +38,7 @@
             if (username != null) {
                 out.print(username);
             } else {
-                response.sendRedirect("login.jsp"); // Redirect to login page if no session
+                response.sendRedirect("login.jsp"); 
             }
         %>!
         </h2>
@@ -50,18 +50,17 @@
         </form>
 
         <%
-            // Handle logout functionality directly within the JSP
             if (request.getParameter("logout") != null) {
-                session.invalidate();  // Invalidate the session
-                response.sendRedirect("index.jsp");  // Redirect to index page
+                session.invalidate(); 
+                response.sendRedirect("index.jsp");  
             }
 
-            // Handle account deletion
+
             if (request.getParameter("deleteAccount") != null) {
                 Connections dbConn = new Connections();
                 if (dbConn.deleteUser(username)) {
-                    session.invalidate();  // Invalidate the session after deletion
-                    response.sendRedirect("index.jsp");  // Redirect to index page
+                    session.invalidate();  
+                    response.sendRedirect("index.jsp");  
                 } else {
                     out.println("<div class='error'>Error: Could not delete account. Please try again.</div>");
                 }

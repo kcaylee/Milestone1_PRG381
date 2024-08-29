@@ -75,7 +75,6 @@
             boolean isAdded = dbConn.addNewUser(username, password, name, surname, phone, email);
             
             if (isAdded) {
-                // Redirect to the login page after successful registration
                 response.sendRedirect("login.jsp");
             } else {
                 out.println("<div class='error'>Username or Email already taken!</div>");

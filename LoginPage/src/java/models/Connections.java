@@ -11,10 +11,10 @@ public class Connections {
     private static final String DRIVER = "org.postgresql.Driver";
     private Connection con;
 
-    // Constructor
+
     public Connections() {}
 
-    // Get database connection
+
     public Connection getCon() throws ClassNotFoundException {
         try {
             Class.forName(DRIVER);
@@ -28,25 +28,23 @@ public class Connections {
         return con;
     }
 
-    // Add new user to the database
+
     public boolean addNewUser(String user, String pass, String name, String surname, String phone, String email) {
         try (Connection conn = getCon()) {
-            // Check if username or email already exists
+
             String checkSql = "SELECT * FROM Members WHERE username = ? OR email = ?";
             try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
                 checkStmt.setString(1, user);
                 checkStmt.setString(2, email);
                 try (ResultSet rs = checkStmt.executeQuery()) {
                     if (rs.next()) {
-                        // Username or email already exists
                         System.out.println("Username or Email already taken!");
                         return false;
                     } else {
-                        // Insert the new user into the database
                         String insertSql = "INSERT INTO Members (username, password, name, surname, phone, email) VALUES (?, ?, ?, ?, ?, ?)";
                         try (PreparedStatement stmt = conn.prepareStatement(insertSql)) {
                             stmt.setString(1, user);
-                            stmt.setString(2, pass);  // Ideally, hash the password before storing
+                            stmt.setString(2, pass);  
                             stmt.setString(3, name);
                             stmt.setString(4, surname);
                             stmt.setString(5, phone);
@@ -64,15 +62,14 @@ public class Connections {
         }
     }
 
-    // Verify user credentials
     public boolean verifyUser(String user, String pass) {
         try (Connection conn = getCon()) {
             String sql = "SELECT * FROM Members WHERE username = ? AND password = ?";
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, user);
-                stmt.setString(2, pass);  // Ideally, hash the password before checking
+                stmt.setString(2, pass);
                 try (ResultSet rs = stmt.executeQuery()) {
-                    return rs.next();  // Return true if a matching user is found
+                    return rs.next(); 
                 }
             }
         } catch (Exception e) {
@@ -81,7 +78,7 @@ public class Connections {
         }
     }
 
-    // Delete user from the database
+
     public boolean deleteUser(String user) {
         try (Connection conn = getCon()) {
             String sql = "DELETE FROM Members WHERE username = ?";

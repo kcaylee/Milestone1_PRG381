@@ -1,9 +1,40 @@
-In this milestone, we were tasked with creating a web application with user authentication functionality, specifically focusing on implementing user login and registration features. The project requirements included:
+# 🔐 User Authentication Web Application
 
-Front-End: Java Server Pages (JSP) to design and structure the user interface.
-Back-End: Servlets to handle server-side processing, manage requests, and interact with the database.
-Database: PostgreSQL, used to securely store user credentials and manage authentication data.
-Deployment: The application is designed to run on an Apache Tomcat or GlassFish server for robust and scalable deployment.
+This project was developed as part of a milestone for **PRG381**, with the goal of building a web application featuring **user authentication functionality**, including **login** and **registration**.
 
+## 🌐 Project Overview
 
-This project emphasizes a secure, scalable, and efficient approach to building foundational authentication features for web applications, integrating JSP, Servlets, and PostgreSQL into a cohesive system.
+This web application demonstrates the integration of front-end and back-end components using **Java technologies**, while securely interacting with a **PostgreSQL** database to manage user credentials.
+
+## 🔧 Technologies Used
+
+- **Java Server Pages (JSP):**  
+  For building and structuring the user interface.
+
+- **Java Servlets:**  
+  Handle server-side logic, process requests, and communicate with the database.
+
+- **PostgreSQL:**  
+  Stores user credentials securely and supports authentication operations.
+
+- **Apache Tomcat / GlassFish:**  
+  Used for deploying the application in a robust and scalable environment.
+
+## 🛡️ Key Features
+
+- 👤 **User Registration:**  
+  Allows users to create new accounts with secure data storage.
+
+- 🔐 **User Login:**  
+  Authenticates users based on their stored credentials.
+
+- 💾 **Database Integration:**  
+  Reads/writes user data to a PostgreSQL database using JDBC.
+
+- 📦 **Separation of Concerns:**  
+  Clear separation between UI, business logic, and data handling.
+
+## ✅ Summary
+
+This project emphasizes a **secure**, **modular**, and **scalable** approach to building foundational user authentication systems in web applications. It effectively integrates JSP, Servlets, and PostgreSQL into a cohesive architecture.
+
